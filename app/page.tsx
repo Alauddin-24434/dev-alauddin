@@ -1,52 +1,80 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowRight, Book, Code, Cpu, FileCode2, Lightbulb, MessageSquare, User } from "lucide-react"
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  ArrowRight,
+  Book,
+  Code,
+  Cpu,
+  FileCode2,
+  Lightbulb,
+  MessageSquare,
+  User,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AnimatedSkillsShowcase from "@/components/animated-skills-showcase";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("home")
-  const { scrollY } = useScroll()
-  const ref = useRef<HTMLDivElement>(null)
+  const [activeSection, setActiveSection] = useState("home");
+  const { scrollY } = useScroll();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "education", "blog", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "education",
+        "blog",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
           }
         }
-      })
-    }
+      });
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 150])
-  const opacityHero = useTransform(scrollY, [0, 300], [1, 0])
+  const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-black via-gray-900 to-black text-white" ref={ref}>
+    <div
+      className="flex min-h-screen flex-col bg-gradient-to-br from-black via-gray-900 to-black text-white"
+      ref={ref}
+    >
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <div className="font-bold text-xl">
-            <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">Alauddin</span>
-            <span className="bg-gradient-to-r from-emerald-500 to-cyan-400 bg-clip-text text-transparent">Folio</span>
+            <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
+              Alauddin
+            </span>
+            <span className="bg-gradient-to-r from-emerald-500 to-cyan-400 bg-clip-text text-transparent">
+              Folio
+            </span>
           </div>
           <nav className="hidden md:flex gap-8">
             <NavLink href="#home" active={activeSection === "home"}>
@@ -78,12 +106,21 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
-          <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+        <section
+          id="home"
+          className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
+        >
+          <motion.div
+            className="absolute inset-0 z-0"
+            style={{ y: backgroundY }}
+          >
             <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTMzMzMiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]" />
           </motion.div>
 
-          <motion.div style={{ opacity: opacityHero }} className="container relative z-10">
+          <motion.div
+            style={{ opacity: opacityHero }}
+            className="container relative z-10"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -123,8 +160,8 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="max-w-[600px] text-gray-300 md:text-xl"
                 >
-                  I transform ideas into exceptional web applications using cutting-edge technologies and creative
-                  solutions.
+                  I transform ideas into exceptional web applications using
+                  cutting-edge technologies and creative solutions.
                 </motion.p>
 
                 <motion.div
@@ -140,7 +177,11 @@ export default function Home() {
                     Explore Projects{" "}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
-                  <Button size="lg" variant="outline" className="border-teal-500/50 text-white hover:bg-teal-950/50">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-teal-500/50 text-white hover:bg-teal-950/50"
+                  >
                     Contact Me
                   </Button>
                 </motion.div>
@@ -231,7 +272,10 @@ export default function Home() {
                 <div className="mt-2 h-10 w-6 rounded-full border-2 border-teal-500/50 p-1">
                   <motion.div
                     animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                    transition={{
+                      repeat: Number.POSITIVE_INFINITY,
+                      duration: 1.5,
+                    }}
                     className="h-2 w-2 rounded-full bg-teal-500"
                   ></motion.div>
                 </div>
@@ -239,6 +283,8 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </section>
+
+        {/* About me section  start*/}
 
         <section id="about" className="py-24">
           <div className="container">
@@ -282,16 +328,21 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="space-y-6"
               >
-                <h3 className="text-2xl font-bold">Full-Stack Developer with a Passion for Creating</h3>
+                <h3 className="text-2xl font-bold">
+                  Full-Stack Developer with a Passion for Creating
+                </h3>
                 <p className="text-gray-300">
-                  I'm a passionate full-stack developer with expertise in building modern web applications. My journey
-                  in the tech world started with a curiosity about how websites work, which led me to dive deep into
-                  both frontend and backend technologies.
+                  I'm a passionate full-stack developer with expertise in
+                  building modern web applications. My journey in the tech world
+                  started with a curiosity about how websites work, which led me
+                  to dive deep into both frontend and backend technologies.
                 </p>
                 <p className="text-gray-300">
-                  I specialize in crafting seamless user experiences with React, Next.js, and modern JavaScript
-                  frameworks while building robust backend systems with Node.js and various databases. My approach
-                  combines technical expertise with creative problem-solving to deliver exceptional digital products.
+                  I specialize in crafting seamless user experiences with React,
+                  Next.js, and modern JavaScript frameworks while building
+                  robust backend systems with Node.js and various databases. My
+                  approach combines technical expertise with creative
+                  problem-solving to deliver exceptional digital products.
                 </p>
 
                 <div className="grid grid-cols-2 gap-6">
@@ -300,21 +351,71 @@ export default function Home() {
                       <div className="h-1 w-1 rounded-full bg-teal-400"></div>
                       <h4 className="font-medium">Frontend Development</h4>
                     </div>
-                    <p className="text-sm text-gray-400">React, Next.js, Tailwind CSS</p>
+                    <p className="text-sm text-gray-400">
+                      <span className="font-semibold text-white">Core:</span>{" "}
+                      HTML, CSS, JavaScript, TypeScript
+                      <br />
+                      <span className="font-semibold text-white">
+                        Frameworks & Libraries:
+                      </span>{" "}
+                      React, Next.js, Redux Toolkit, Zustand, Tailwind CSS,
+                      Framer Motion
+                      <br />
+                      <span className="font-semibold text-white">
+                        Utilities:
+                      </span>{" "}
+                      Axios, React Hook Form, Chart.js, AOS
+                      <br />
+                      <span className="font-semibold text-white">
+                        Others:
+                      </span>{" "}
+                      Responsive Design, Component Reusability, SEO
+                      Optimization, REST API Integration
+                    </p>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <div className="h-1 w-1 rounded-full bg-teal-400"></div>
                       <h4 className="font-medium">Backend Development</h4>
                     </div>
-                    <p className="text-sm text-gray-400">Node.js, Express, MongoDB</p>
+                    <p className="text-sm text-gray-400">
+                      <span className="font-semibold text-white">
+                        Runtime & Frameworks:
+                      </span>{" "}
+                      Node.js, Express.js
+                      <br />
+                      <span className="font-semibold text-white">
+                        Databases:
+                      </span>{" "}
+                      MongoDB, Mongoose, PostgreSQL, Prisma ORM
+                      <br />
+                      <span className="font-semibold text-white">
+                        Authentication:
+                      </span>{" "}
+                      JWT, OAuth, bcrypt, Role-based Access Control (RBAC)
+                      <br />
+                      <span className="font-semibold text-white">
+                        API:
+                      </span>{" "}
+                      RESTful API Design, CRUD Operations, Pagination,
+                      Filtering, Error Handling
+                      <br />
+                      <span className="font-semibold text-white">
+                        Others:
+                      </span>{" "}
+                      MVC Pattern, Middleware, Express Validator alternatives,
+                      File Upload (Multer), Environment Variables, Postman,
+                      Thunder Client
+                    </p>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <div className="h-1 w-1 rounded-full bg-teal-400"></div>
                       <h4 className="font-medium">UI/UX Design</h4>
                     </div>
-                    <p className="text-sm text-gray-400">Figma, Responsive Design</p>
+                    <p className="text-sm text-gray-400">
+                      Figma, Responsive Design
+                    </p>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
@@ -326,74 +427,21 @@ export default function Home() {
                 </div>
 
                 <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 group border-0">
-                  Download CV <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Download CV{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </motion.div>
             </div>
           </div>
         </section>
-
-        <section id="skills" className="py-24 bg-gradient-to-b from-transparent to-teal-950/20">
+        {/*  about me section end */}
+        <section
+          id="skills"
+          className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
+        >
           <div className="container">
             <SectionHeader title="My Skills" />
-
-            <div className="mt-16">
-              <Tabs defaultValue="technical" className="w-full">
-                <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-12">
-                  <TabsTrigger
-                    value="technical"
-                    className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
-                  >
-                    Technical Skills
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="design"
-                    className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
-                  >
-                    Design Skills
-                  </TabsTrigger>
-                  <TabsTrigger value="soft" className="data-[state=active]:bg-teal-500 data-[state=active]:text-white">
-                    Soft Skills
-                  </TabsTrigger>
-                </TabsList>
-
-                <TabsContent value="technical">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <SkillProgressCard skill="JavaScript" progress={90} />
-                    <SkillProgressCard skill="React.js" progress={85} />
-                    <SkillProgressCard skill="Next.js" progress={80} />
-                    <SkillProgressCard skill="Node.js" progress={85} />
-                    <SkillProgressCard skill="MongoDB" progress={75} />
-                    <SkillProgressCard skill="TypeScript" progress={80} />
-                    <SkillProgressCard skill="PostgreSQL" progress={70} />
-                    <SkillProgressCard skill="GraphQL" progress={65} />
-                    <SkillProgressCard skill="Docker" progress={70} />
-                  </div>
-                </TabsContent>
-
-                <TabsContent value="design">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <SkillProgressCard skill="UI Design" progress={80} />
-                    <SkillProgressCard skill="UX Design" progress={75} />
-                    <SkillProgressCard skill="Responsive Design" progress={90} />
-                    <SkillProgressCard skill="Figma" progress={70} />
-                    <SkillProgressCard skill="Adobe XD" progress={65} />
-                    <SkillProgressCard skill="Tailwind CSS" progress={85} />
-                  </div>
-                </TabsContent>
-
-                <TabsContent value="soft">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <SkillProgressCard skill="Problem Solving" progress={95} />
-                    <SkillProgressCard skill="Communication" progress={85} />
-                    <SkillProgressCard skill="Teamwork" progress={90} />
-                    <SkillProgressCard skill="Time Management" progress={80} />
-                    <SkillProgressCard skill="Adaptability" progress={85} />
-                    <SkillProgressCard skill="Critical Thinking" progress={90} />
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </div>
+<AnimatedSkillsShowcase/>
           </div>
         </section>
 
@@ -451,13 +499,17 @@ export default function Home() {
                 size="lg"
                 className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 group border-0"
               >
-                View All Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                View All Projects{" "}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </div>
         </section>
 
-        <section id="education" className="py-24 bg-gradient-to-b from-transparent to-teal-950/20">
+        <section
+          id="education"
+          className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
+        >
           <div className="container">
             <SectionHeader title="Education & Courses" />
 
@@ -490,7 +542,8 @@ export default function Home() {
 
               <div>
                 <h3 className="text-2xl font-bold mb-8 flex items-center">
-                  <Lightbulb className="mr-2 h-6 w-6 text-teal-400" /> Courses & Certifications
+                  <Lightbulb className="mr-2 h-6 w-6 text-teal-400" /> Courses &
+                  Certifications
                 </h3>
                 <div className="space-y-8">
                   <CourseCard
@@ -552,14 +605,22 @@ export default function Home() {
             </div>
 
             <div className="mt-12 flex justify-center">
-              <Button variant="outline" size="lg" className="border-teal-500/50 text-white hover:bg-teal-950/50 group">
-                View All Articles <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-teal-500/50 text-white hover:bg-teal-950/50 group"
+              >
+                View All Articles{" "}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-24 bg-gradient-to-b from-transparent to-teal-950/20">
+        <section
+          id="contact"
+          className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
+        >
           <div className="container">
             <SectionHeader title="Get In Touch" />
 
@@ -573,7 +634,8 @@ export default function Home() {
               >
                 <h3 className="text-2xl font-bold">Let's Work Together</h3>
                 <p className="text-gray-300">
-                  I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                  I'm always open to discussing new projects, creative ideas or
+                  opportunities to be part of your vision.
                 </p>
 
                 <div className="space-y-4">
@@ -594,13 +656,22 @@ export default function Home() {
                     <div>
                       <h4 className="font-medium">Social Profiles</h4>
                       <div className="mt-2 flex gap-4">
-                        <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                        <Link
+                          href="#"
+                          className="text-gray-400 hover:text-teal-400 transition-colors"
+                        >
                           GitHub
                         </Link>
-                        <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                        <Link
+                          href="#"
+                          className="text-gray-400 hover:text-teal-400 transition-colors"
+                        >
                           LinkedIn
                         </Link>
-                        <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+                        <Link
+                          href="#"
+                          className="text-gray-400 hover:text-teal-400 transition-colors"
+                        >
                           Twitter
                         </Link>
                       </div>
@@ -680,72 +751,121 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col items-center justify-center">
             <div className="font-bold text-2xl mb-6">
-              <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">Dev</span>
-              <span className="bg-gradient-to-r from-emerald-500 to-cyan-400 bg-clip-text text-transparent">Folio</span>
+              <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
+                Dev
+              </span>
+              <span className="bg-gradient-to-r from-emerald-500 to-cyan-400 bg-clip-text text-transparent">
+                Folio
+              </span>
             </div>
 
             <nav className="flex flex-wrap justify-center gap-6 mb-8">
-              <Link href="#home" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#home"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Home
               </Link>
-              <Link href="#about" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#about"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 About
               </Link>
-              <Link href="#skills" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#skills"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Skills
               </Link>
-              <Link href="#projects" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#projects"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Projects
               </Link>
-              <Link href="#education" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#education"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Education
               </Link>
-              <Link href="#blog" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#blog"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Blog
               </Link>
-              <Link href="#contact" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#contact"
+                className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Contact
               </Link>
             </nav>
 
             <div className="flex gap-6 mb-8">
-              <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 GitHub
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 LinkedIn
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Twitter
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+              >
                 Instagram
               </Link>
             </div>
 
             <div className="text-center text-sm text-gray-500">
-              <p>&copy; {new Date().getFullYear()} DevFolio. All rights reserved.</p>
+              <p>
+                &copy; {new Date().getFullYear()} DevFolio. All rights reserved.
+              </p>
               <p className="mt-1">Designed and built with passion</p>
             </div>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
-function NavLink({ href, active, children }: { href: string; active: boolean; children: React.ReactNode }) {
+function NavLink({
+  href,
+  active,
+  children,
+}: {
+  href: string;
+  active: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
-      className={`text-sm font-medium transition-colors ${active ? "text-teal-400" : "text-gray-300 hover:text-teal-400"}`}
+      className={`text-sm font-medium transition-colors ${
+        active ? "text-teal-400" : "text-gray-300 hover:text-teal-400"
+      }`}
     >
       {children}
     </Link>
-  )
+  );
 }
 
-function SectionHeader({ title }: { title: string }) {
+export function SectionHeader({ title }: { title: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -759,33 +879,39 @@ function SectionHeader({ title }: { title: string }) {
       </h2>
       <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500"></div>
     </motion.div>
-  )
+  );
 }
 
-function SkillProgressCard({ skill, progress }: { skill: string; progress: number }) {
-  const [isInView, setIsInView] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+function SkillProgressCard({
+  skill,
+  progress,
+}: {
+  skill: string;
+  progress: number;
+}) {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsInView(true)
+          setIsInView(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
     return () => {
       if (ref.current) {
-        observer.unobserve(ref.current)
+        observer.unobserve(ref.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <motion.div
@@ -808,7 +934,7 @@ function SkillProgressCard({ skill, progress }: { skill: string; progress: numbe
         ></motion.div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 function ProjectCard({
@@ -818,11 +944,11 @@ function ProjectCard({
   tags,
   link,
 }: {
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  link: string
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
 }) {
   return (
     <motion.div
@@ -844,25 +970,32 @@ function ProjectCard({
 
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
-            <Button className="bg-teal-500 hover:bg-teal-600 text-white border-0">View Project</Button>
+            <Button className="bg-teal-500 hover:bg-teal-600 text-white border-0">
+              View Project
+            </Button>
           </Link>
         </div>
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-teal-400 transition-colors">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-teal-400 transition-colors">
+          {title}
+        </h3>
         <p className="text-gray-300 mb-4 text-sm">{description}</p>
 
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
-            <span key={index} className="rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
+            <span
+              key={index}
+              className="rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400"
+            >
               {tag}
             </span>
           ))}
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 function TimelineItem({
@@ -871,10 +1004,10 @@ function TimelineItem({
   organization,
   description,
 }: {
-  year: string
-  title: string
-  organization: string
-  description: string
+  year: string;
+  title: string;
+  organization: string;
+  description: string;
 }) {
   return (
     <motion.div
@@ -885,12 +1018,14 @@ function TimelineItem({
       className="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-gradient-to-b before:from-teal-500 before:to-emerald-500"
     >
       <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-teal-500"></div>
-      <div className="inline-block rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">{year}</div>
+      <div className="inline-block rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">
+        {year}
+      </div>
       <h4 className="mt-2 text-lg font-bold">{title}</h4>
       <p className="text-gray-400">{organization}</p>
       <p className="mt-2 text-gray-300 text-sm">{description}</p>
     </motion.div>
-  )
+  );
 }
 
 function CourseCard({
@@ -899,10 +1034,10 @@ function CourseCard({
   date,
   description,
 }: {
-  title: string
-  organization: string
-  date: string
-  description: string
+  title: string;
+  organization: string;
+  date: string;
+  description: string;
 }) {
   return (
     <motion.div
@@ -914,12 +1049,14 @@ function CourseCard({
     >
       <div className="flex justify-between items-start">
         <h4 className="text-lg font-bold">{title}</h4>
-        <div className="rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">{date}</div>
+        <div className="rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">
+          {date}
+        </div>
       </div>
       <p className="mt-1 text-gray-400">{organization}</p>
       <p className="mt-3 text-gray-300 text-sm">{description}</p>
     </motion.div>
-  )
+  );
 }
 
 function BlogCard({
@@ -929,11 +1066,11 @@ function BlogCard({
   category,
   image,
 }: {
-  title: string
-  excerpt: string
-  date: string
-  category: string
-  image: string
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  image: string;
 }) {
   return (
     <motion.div
@@ -953,19 +1090,26 @@ function BlogCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
         <div className="absolute top-4 left-4">
-          <div className="rounded-md bg-teal-500 px-2 py-1 text-xs text-white">{category}</div>
+          <div className="rounded-md bg-teal-500 px-2 py-1 text-xs text-white">
+            {category}
+          </div>
         </div>
       </div>
 
       <div className="p-6">
         <div className="mb-3 text-sm text-gray-400">{date}</div>
-        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-teal-400 transition-colors">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-teal-400 transition-colors">
+          {title}
+        </h3>
         <p className="text-gray-300 mb-4 text-sm line-clamp-3">{excerpt}</p>
 
-        <Link href="#" className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors">
+        <Link
+          href="#"
+          className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors"
+        >
           Read More <ArrowRight className="ml-1 h-4 w-4" />
         </Link>
       </div>
     </motion.div>
-  )
+  );
 }
