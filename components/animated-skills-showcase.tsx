@@ -68,19 +68,19 @@ export default function AnimatedSkillsShowcase() {
             value="technical"
             className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
           >
-            Technical Skills
+            Technical
           </TabsTrigger>
           <TabsTrigger
             value="design"
             className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
           >
-            Design Skills
+            Design 
           </TabsTrigger>
           <TabsTrigger
             value="soft"
             className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
           >
-            Soft Skills
+            Soft 
           </TabsTrigger>
         </TabsList>
       </div>

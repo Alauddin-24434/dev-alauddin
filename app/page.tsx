@@ -492,23 +492,18 @@ export default function Home() {
                 </h3>
                 <div className="space-y-8">
                   <CourseCard
-                    title="Advanced React & Next.js Patterns"
-                    organization="Frontend Masters"
-                    date="2023"
+                    title="Full-Stack Web Development"
+                    organization="Next Level Web Development - Programming Hero"
+                    date="2024"
                     description="Deep dive into advanced React patterns, Next.js app architecture, and performance optimization."
                   />
                   <CourseCard
-                    title="Full-Stack JavaScript Bootcamp"
-                    organization="Code Academy"
-                    date="2022"
+                    title="Web Development Course"
+                    organization="Programming Hero"
+                    date="2023"
                     description="Intensive training in modern JavaScript development across the entire stack."
                   />
-                  <CourseCard
-                    title="AWS Certified Developer"
-                    organization="Amazon Web Services"
-                    date="2021"
-                    description="Professional certification for developing and maintaining applications on AWS."
-                  />
+                  
                   <CourseCard
                     title="UI/UX Design Fundamentals"
                     organization="Design School"

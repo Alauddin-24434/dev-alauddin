@@ -45,13 +45,13 @@ const ProjectShowcase = () => {
                     value="next"
                     className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
                   >
-                    Next Js
+                    Next
                   </TabsTrigger>
                   <TabsTrigger
                     value="react"
                     className="data-[state=active]:bg-teal-500 data-[state=active]:text-white"
                   >
-                    React Js
+                    React
                   </TabsTrigger>
                   <TabsTrigger
                     value="backend"
@@ -186,15 +186,7 @@ const ProjectShowcase = () => {
       </TabsContent>
     </Tabs>
 
-    <div className="mt-12 flex justify-center">
-      <Button
-        size="lg"
-        className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 group border-0"
-      >
-        View All Projects{" "}
-        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </Button>
-    </div>
+ 
   </div>
   );
 };
