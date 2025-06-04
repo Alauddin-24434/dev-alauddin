@@ -18,8 +18,11 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-import AnimatedSkillsShowcase from "@/components/animated-skills-showcase";
 import ProjectShowcase from "@/components/projects-showcase";
+import { SectionHeader } from "@/components/shared/SectionHeader";
+import AboutMe from "@/components/about-me";
+import SkillsShowcase from "@/components/skill-showcase";
+import Courses from "@/components/courses";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -34,7 +37,7 @@ export default function Home() {
         "about",
         "skills",
         "projects",
-        "education",
+        "courses",
         "blog",
         "contact",
       ];
@@ -64,10 +67,7 @@ export default function Home() {
   const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <div
-      className="flex min-h-screen flex-col bg-gradient-to-br from-black via-gray-900 to-black text-white"
-      ref={ref}
-    >
+    <div className="flex min-h-screen flex-col  text-white" ref={ref}>
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <div className="font-bold text-xl">
@@ -91,8 +91,8 @@ export default function Home() {
             <NavLink href="#projects" active={activeSection === "projects"}>
               Projects
             </NavLink>
-            <NavLink href="#education" active={activeSection === "education"}>
-              Education
+            <NavLink href="#courses" active={activeSection === "education"}>
+              Courses
             </NavLink>
             <NavLink href="#blog" active={activeSection === "blog"}>
               Blog
@@ -106,8 +106,9 @@ export default function Home() {
           </Button>
         </div>
       </header>
-
+{/* ---------------------------------------------------------------main start--------------------------------------- */}
       <main className="flex-1">
+        {/* ------------------------------Hero section start  ---------------------------*/}
         <section
           id="home"
           className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
@@ -199,7 +200,7 @@ export default function Home() {
                   <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-teal-500 to-emerald-500 opacity-75 blur-xl"></div>
                   <div className="relative h-80 w-80 overflow-hidden rounded-2xl border border-teal-500/20 bg-black/80 p-1">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alauddin1-rqwTbU8w-4I1ZVjXwXSb0DNIpiGCOjqZTs4NR0i.png"
+                      src="/alauddin.png"
                       alt="Profile"
                       fill
                       className="object-cover"
@@ -285,237 +286,48 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </section>
-
-        {/* About me section  start*/}
+        {/* -------------------------------hero section end-------------------------- */}
+        {/*------------------------------- About me section  start----------------------------*/}
 
         <section id="about" className="py-24">
           <div className="container">
             <SectionHeader title="About Me" />
-
-            <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal-500 to-emerald-500 opacity-20 blur-xl"></div>
-                <div className="relative aspect-square overflow-hidden rounded-2xl border border-teal-500/20 bg-black/80">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alauddin1-rqwTbU8w-4I1ZVjXwXSb0DNIpiGCOjqZTs4NR0i.png"
-                    alt="About me"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex gap-3">
-                      <div className="rounded-md bg-black/70 px-3 py-1 text-sm backdrop-blur-md border border-teal-500/20">
-                        5+ Years Experience
-                      </div>
-                      <div className="rounded-md bg-black/70 px-3 py-1 text-sm backdrop-blur-md border border-emerald-500/20">
-                        50+ Projects
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6"
-              >
-                <h3 className="text-2xl font-bold">
-                  Full-Stack Developer with a Passion for Creating
-                </h3>
-                <p className="text-gray-300">
-                  I'm a passionate full-stack developer with expertise in
-                  building modern web applications. My journey in the tech world
-                  started with a curiosity about how websites work, which led me
-                  to dive deep into both frontend and backend technologies.
-                </p>
-                <p className="text-gray-300">
-                  I specialize in crafting seamless user experiences with React,
-                  Next.js, and modern JavaScript frameworks while building
-                  robust backend systems with Node.js and various databases. My
-                  approach combines technical expertise with creative
-                  problem-solving to deliver exceptional digital products.
-                </p>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-1 rounded-full bg-teal-400"></div>
-                      <h4 className="font-medium">Frontend Development</h4>
-                    </div>
-                    <p className="text-sm text-gray-400">
-                      <span className="font-semibold text-white">Core:</span>{" "}
-                      HTML, CSS, JavaScript, TypeScript
-                      <br />
-                      <span className="font-semibold text-white">
-                        Frameworks & Libraries:
-                      </span>{" "}
-                      React, Next.js, Redux Toolkit, Zustand, Tailwind CSS,
-                      Framer Motion
-                      <br />
-                      <span className="font-semibold text-white">
-                        Utilities:
-                      </span>{" "}
-                      Axios, React Hook Form, Chart.js, AOS
-                      <br />
-                      <span className="font-semibold text-white">
-                        Others:
-                      </span>{" "}
-                      Responsive Design, Component Reusability, SEO
-                      Optimization, REST API Integration
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-1 rounded-full bg-teal-400"></div>
-                      <h4 className="font-medium">Backend Development</h4>
-                    </div>
-                    <p className="text-sm text-gray-400">
-                      <span className="font-semibold text-white">
-                        Runtime & Frameworks:
-                      </span>{" "}
-                      Node.js, Express.js
-                      <br />
-                      <span className="font-semibold text-white">
-                        Databases:
-                      </span>{" "}
-                      MongoDB, Mongoose, PostgreSQL, Prisma ORM
-                      <br />
-                      <span className="font-semibold text-white">
-                        Authentication:
-                      </span>{" "}
-                      JWT, OAuth, bcrypt, Role-based Access Control (RBAC)
-                      <br />
-                      <span className="font-semibold text-white">
-                        API:
-                      </span>{" "}
-                      RESTful API Design, CRUD Operations, Pagination,
-                      Filtering, Error Handling
-                      <br />
-                      <span className="font-semibold text-white">
-                        Others:
-                      </span>{" "}
-                      MVC Pattern, Middleware, Express Validator alternatives,
-                      File Upload (Multer), Environment Variables, Postman,
-                      Thunder Client
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-1 rounded-full bg-teal-400"></div>
-                      <h4 className="font-medium">UI/UX Design</h4>
-                    </div>
-                    <p className="text-sm text-gray-400">
-                      Figma, Responsive Design
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-1 rounded-full bg-teal-400"></div>
-                      <h4 className="font-medium">DevOps</h4>
-                    </div>
-                    <p className="text-sm text-gray-400">Docker, CI/CD, AWS</p>
-                  </div>
-                </div>
-
-                <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 group border-0">
-                  Download CV{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </motion.div>
-            </div>
+            <AboutMe />
           </div>
         </section>
-        {/*  about me section end */}
-        <section
-          id="skills"
-          className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
-        >
+        {/* ------------------------------------- about me section end ---------------------------*/}
+
+        {/* --------------------------skill section start----------------------------- */}
+        <section id="skills" className="py-24">
           <div className="container">
             <SectionHeader title="My Skills" />
-            <AnimatedSkillsShowcase />
+            <SkillsShowcase />
           </div>
         </section>
-        {/*------------------- project showcase start hare-------------------- */}
+
+        {/* --------------------------skill section end----------------------------- */}
+        {/*------------------- project showcase start -------------------- */}
         <section id="projects" className="py-24">
-          <ProjectShowcase />
+          <div className="container">
+            <SectionHeader title="Featured Projects" />
+            <ProjectShowcase />
+          </div>
         </section>
-        {/*----------------------- project showcase end hare-------------------- */}
+        {/*----------------------- project showcase end ------------------- */}
+
+        {/*------------------- courses section start ---------------------------------- */}
         <section
-          id="education"
-          className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
+          id="courses"
+          className="py-24 "
         >
           <div className="container">
-            <SectionHeader title="Education & Courses" />
-
-            <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div>
-                <h3 className="text-2xl font-bold mb-8 flex items-center">
-                  <Book className="mr-2 h-6 w-6 text-teal-400" /> Education
-                </h3>
-                <div className="space-y-12">
-                  <TimelineItem
-                    year="2018 - 2022"
-                    title="Bachelor of Science in Computer Science"
-                    organization="University of Technology"
-                    description="Specialized in software engineering with focus on web development and database systems."
-                  />
-                  <TimelineItem
-                    year="2016 - 2018"
-                    title="Associate Degree in Information Technology"
-                    organization="Community College of Technology"
-                    description="Foundation studies in programming, networking, and system administration."
-                  />
-                  <TimelineItem
-                    year="2016"
-                    title="High School Diploma"
-                    organization="Tech High School"
-                    description="Advanced coursework in mathematics, physics, and computer science."
-                  />
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold mb-8 flex items-center">
-                  <Lightbulb className="mr-2 h-6 w-6 text-teal-400" /> Courses &
-                  Certifications
-                </h3>
-                <div className="space-y-8">
-                  <CourseCard
-                    title="Full-Stack Web Development"
-                    organization="Next Level Web Development - Programming Hero"
-                    date="2024"
-                    description="Deep dive into advanced React patterns, Next.js app architecture, and performance optimization."
-                  />
-                  <CourseCard
-                    title="Web Development Course"
-                    organization="Programming Hero"
-                    date="2023"
-                    description="Intensive training in modern JavaScript development across the entire stack."
-                  />
-                  
-                  <CourseCard
-                    title="UI/UX Design Fundamentals"
-                    organization="Design School"
-                    date="2020"
-                    description="Comprehensive training in user interface design, user experience principles, and design systems."
-                  />
-                </div>
-              </div>
-            </div>
+            <SectionHeader title="Courses & Certifications" />
+            <Courses />
           </div>
         </section>
+        {/*  ------------------------------courses section end------------------------------------ */}
 
+        {/* ----------------blog section start--------------------------- */}
         <section id="blog" className="py-24">
           <div className="container">
             <SectionHeader title="Latest Blog Posts" />
@@ -556,7 +368,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* ------------------------blog section end---------------------------------- */}
 
+        {/* ------------------------- contact section start------------------------------ */}
         <section
           id="contact"
           className="py-24 bg-gradient-to-b from-transparent to-teal-950/20"
@@ -685,8 +499,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ------------------------- contact section end------------------------------ */}
       </main>
 
+{/*--------------------------------------- main end -------------------- ---------------------------------*/}
       <footer className="border-t border-white/10 py-12 bg-black/90">
         <div className="container">
           <div className="flex flex-col items-center justify-center">
@@ -802,139 +619,6 @@ function NavLink({
     >
       {children}
     </Link>
-  );
-}
-
-export function SectionHeader({ title }: { title: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col items-center"
-    >
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-        {title}
-      </h2>
-      <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500"></div>
-    </motion.div>
-  );
-}
-
-function SkillProgressCard({
-  skill,
-  progress,
-}: {
-  skill: string;
-  progress: number;
-}) {
-  const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-      className="rounded-xl border border-teal-500/20 bg-black/40 p-6 backdrop-blur-sm"
-    >
-      <div className="mb-3 flex justify-between">
-        <h3 className="font-medium">{skill}</h3>
-        <span>{progress}%</span>
-      </div>
-      <div className="h-2 w-full rounded-full bg-gray-800">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${progress}%` } : { width: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="h-full rounded-full bg-gradient-to-r from-teal-500 to-emerald-500"
-        ></motion.div>
-      </div>
-    </motion.div>
-  );
-}
-
-function TimelineItem({
-  year,
-  title,
-  organization,
-  description,
-}: {
-  year: string;
-  title: string;
-  organization: string;
-  description: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-gradient-to-b before:from-teal-500 before:to-emerald-500"
-    >
-      <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-teal-500"></div>
-      <div className="inline-block rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">
-        {year}
-      </div>
-      <h4 className="mt-2 text-lg font-bold">{title}</h4>
-      <p className="text-gray-400">{organization}</p>
-      <p className="mt-2 text-gray-300 text-sm">{description}</p>
-    </motion.div>
-  );
-}
-
-function CourseCard({
-  title,
-  organization,
-  date,
-  description,
-}: {
-  title: string;
-  organization: string;
-  date: string;
-  description: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="rounded-xl border border-teal-500/20 bg-black/40 p-6 backdrop-blur-sm transition-transform hover:scale-105"
-    >
-      <div className="flex justify-between items-start">
-        <h4 className="text-lg font-bold">{title}</h4>
-        <div className="rounded-md bg-teal-500/10 px-2 py-1 text-xs text-teal-400">
-          {date}
-        </div>
-      </div>
-      <p className="mt-1 text-gray-400">{organization}</p>
-      <p className="mt-3 text-gray-300 text-sm">{description}</p>
-    </motion.div>
   );
 }
 
