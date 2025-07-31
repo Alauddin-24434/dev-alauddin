@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { FeaturedProjects } from "@/components/featured-projects"
+import { GitHubShowcase } from "@/components/github-showcase"
 import { Education } from "@/components/education"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -15,6 +16,7 @@ export default function Home() {
       <About />
       <Skills />
       <FeaturedProjects />
+      <GitHubShowcase /> {/* 👈 Perfect placement here! */}
       <Education />
       <Contact />
       <Footer />
