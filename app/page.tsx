@@ -4,9 +4,10 @@ import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { FeaturedProjects } from "@/components/featured-projects"
 import { GitHubShowcase } from "@/components/github-showcase"
-import { Education } from "@/components/education"
+
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { CoursesAndCertifications } from "@/components/course"
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       <Skills />
       <FeaturedProjects />
       <GitHubShowcase /> {/* 👈 Perfect placement here! */}
-      <Education />
+      <CoursesAndCertifications />
       <Contact />
       <Footer />
     </main>
