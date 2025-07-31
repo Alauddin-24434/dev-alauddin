@@ -178,9 +178,7 @@ export function GitHubShowcase() {
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                         My coding journey, contributions, and open-source projects showcase
                     </p>
-                    <Badge variant="secondary" className="mt-4">
-                        Live data from GitHub API
-                    </Badge>
+              
                 </div>
 
 
