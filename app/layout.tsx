@@ -1,19 +1,15 @@
-import type React from "react"
-import "@/app/globals.css"
-import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-})
+import type React from "react"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
 
 export const metadata: Metadata = {
-  title: "Alauddin - Full-Stack Developer Portfolio",
-  description: "Professional portfolio showcasing my skills, projects, education, and blog as a full-stack developer",
-    generator: 'v0.dev'
+  title: "Your Portfolio", // Updated title
+  description: "Professional Full Stack Developer Portfolio", // Updated description
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -23,8 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+      <head>
+        <style>{`html {
+          font-family: ${GeistSans.style.fontFamily};
+          --font-sans: ${GeistSans.variable};
+          --font-mono: ${GeistMono.variable};
+        }`}</style>
+      </head>
+      <body>
+        <ThemeProvider  attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

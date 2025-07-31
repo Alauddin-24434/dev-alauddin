@@ -19,19 +19,18 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-poppins)"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // ==== Primary Color (Easy to change) ====
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+        // ==== Secondary Color (Easy to change) ====
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
