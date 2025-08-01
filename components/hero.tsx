@@ -94,20 +94,7 @@ export function Hero() {
                 height={600}
                 className="relative z-10 rounded-full border-4 border-primary/20 hover:scale-105 transition-transform duration-500"
               />
-              {/* ==== Floating Elements ==== */}
-              <div
-                className="absolute top-10 -right-9  p-3  animate-float "
-                style={{ animationDelay: "0.5s" }}
-              >
-                <span className="inline-block px-3 py-1 text-sm font-semibold border border-blue-600 text-blue-600  bg-white/80 backdrop-blur-sm">DRY Approach</span>
-              </div>
-        
-              <div
-                className="absolute bottom-10 -left-12 p-3  animate-float "
-                style={{ animationDelay: "1.5s" }}
-              >
-                <span className="inline-block px-3 py-1 text-sm font-semibold border border-blue-600 text-blue-600  bg-white/80 backdrop-blur-sm">Reusable Code</span>
-              </div>
+             
              
             </div>
           </div>
