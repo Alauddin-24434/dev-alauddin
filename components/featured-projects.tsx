@@ -77,7 +77,7 @@ export function FeaturedProjects() {
     fetchProjects();
   }, []);
 
-  const getCategoryIcon = (categoryName) => {
+  const getCategoryIcon = (categoryName:any) => {
     switch (categoryName) {
       case "Full Stack":
         return Code;
@@ -88,7 +88,7 @@ export function FeaturedProjects() {
     }
   };
 
-  const getCategoryColor = (categoryName) => {
+  const getCategoryColor = (categoryName:any) => {
     switch (categoryName) {
       case "Full Stack":
         return "bg-blue-600";
@@ -99,14 +99,14 @@ export function FeaturedProjects() {
     }
   };
 
-  const generateApiTestingUrl = (apiCollection) => {
+  const generateApiTestingUrl = (apiCollection:any) => {
     const config = {
       collection: apiCollection,
     };
     return `/api-tester?collection=${encodeURIComponent(JSON.stringify(config))}`;
   };
 
-  const renderBackendCard = (project, index) => {
+  const renderBackendCard = (project:any, index:number) => {
     return (
       <div
         key={project.id}
@@ -143,7 +143,7 @@ export function FeaturedProjects() {
               Technologies
             </h4>
             <div className="flex flex-wrap gap-2">
-              {project.backendTechnologies.map((tech, techIndex) => (
+              {project.backendTechnologies.map((tech:any, techIndex:number) => (
                 <Badge key={techIndex} variant="secondary" className="text-xs px-2 py-1">
                   {tech}
                 </Badge>
@@ -156,7 +156,7 @@ export function FeaturedProjects() {
               Key Features
             </h4>
             <div className="grid grid-cols-1 gap-2">
-              {project.backendFeatures.slice(0, 4).map((feature, featureIndex) => (
+              {project.backendFeatures.slice(0, 4).map((feature:any, featureIndex:number) => (
                 <div key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
                   {feature}
@@ -189,7 +189,7 @@ export function FeaturedProjects() {
     );
   };
 
-  const renderRegularCard = (project, index) => {
+  const renderRegularCard = (project:any, index:number) => {
     const CategoryIcon = getCategoryIcon(project.category);
     return (
       <div
@@ -233,9 +233,9 @@ export function FeaturedProjects() {
             <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{project.description}</p>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.slice(0, 4).map((tech, techIndex) => (
+            {project.technologies.slice(0, 4).map((tech: string, techIndex: number) => (
               <Badge key={techIndex} variant="secondary" className="text-xs px-2 py-1">
-                {tech}
+              {tech}
               </Badge>
             ))}
             {project.technologies.length > 4 && (
@@ -256,11 +256,11 @@ export function FeaturedProjects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-background to-muted/20">
+    <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="text-primary">Portfolio</span>
+            My <span className="text-primary">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Showcasing my work, skills, and continuous learning journey

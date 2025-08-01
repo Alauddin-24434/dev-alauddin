@@ -97,8 +97,8 @@ export function About() {
               data-aos="zoom-in"
               data-aos-delay="400"
             >
-              <h3 className="text-2xl font-bold">2+</h3>
-              <p className="text-sm">Years Coding</p>
+              <h3 className="text-2xl font-bold text-white">2+</h3>
+              <p className="text-sm text-white">Years Coding</p>
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export function About() {
               </p>
             </div>
 
-            <Button size="lg" data-aos="fade-up" data-aos-delay="600">
+            <Button size="lg" data-aos="fade-up" data-aos-delay="600" className="text-white">
               Download Resume
             </Button>
           </div>

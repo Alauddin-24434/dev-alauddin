@@ -48,7 +48,7 @@ export function BlogSection() {
   const [canShare, setCanShare] = useState(false);
 
   useEffect(() => {
-    if (navigator.share) {
+    if (typeof navigator.share === "function") {
       setCanShare(true);
     }
     async function fetchBlogs() {
@@ -92,8 +92,8 @@ export function BlogSection() {
   if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-white dark:bg-gray-950">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="blog" className="py-16 md:py-24  bg-background/80 backdrop-blur-md">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
             Latest <span className="text-primary">Blogs</span>
@@ -127,7 +127,7 @@ export function BlogSection() {
                 // Show actual blog posts after loading
                 blogPosts.slice(0, 4).map((post) => (
                   <div key={post._id} className="relative">
-                    <Card className="bg-white dark:bg-gray-900 shadow-md border border-gray-200 dark:border-gray-800 rounded-xl transition hover:shadow-lg flex flex-col h-full">
+                    <Card className="transition hover:shadow-lg flex flex-col h-full">
                       <CardContent className="p-6 flex-grow">
                         <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
                           <div className="flex items-center">
@@ -184,9 +184,10 @@ export function BlogSection() {
               )}
             </div>
             <div className="text-center mt-16">
-              <Button asChild variant="outline" size="lg">
+              <Button asChild  size="lg" className="text-white">
                 <Link href="/blog">View All Posts</Link>
               </Button>
+              
             </div>
           </TabsContent>
         </Tabs>

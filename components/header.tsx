@@ -16,16 +16,31 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { href: "/#home", label: "Home" },
-    { href: "/#about", label: "About" },
-    { href: "/#skills", label: "Skills" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#contact", label: "Contact" },
-    { href: "/blog", label: "Blog" },
+
+    { href: "#hero", label: "Hero" },
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#github", label: "Git Activity" },
+    { href: "#blog", label: "Blog" },
+    { href: "#contact", label: "Contact" },
+
   ]
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
+  }
+
+  // Smooth scroll handler (optional if you want JS control)
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      const targetElement = document.querySelector(href)
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" })
+      }
+      setIsMenuOpen(false)
+    }
   }
 
   return (
@@ -42,6 +57,8 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                scroll={false} // prevent Next.js from scrolling instantly
+                onClick={(e) => handleScroll(e, item.href)} // JS smooth scroll
                 className="text-foreground hover:text-primary transition-colors hover:scale-105 transform duration-200"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -51,19 +68,23 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant="outline" size="sm" className="hover-lift bg-transparent" asChild>
-              <Link href="/resume">
-                <Eye className="w-4 h-4 mr-2" />
-                View Resume
-              </Link>
-            </Button>
-            <Button size="sm" className="hover-lift">
-              <Download className="w-4 h-4 mr-2" />
-              Download
-            </Button>
-            {/* Theme toggle only after mount */}
+              <Button
+                variant="outline"
+                className="group hover-lift bg-transparent"
+                asChild
+              >
+                <a
+                  href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                  View Resume
+                </a>
+              </Button>
+         
             {mounted && (
-              <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover-lift">
+              <Button variant="outline" size="icon" onClick={toggleTheme} className="hover-lift">
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 <span className="sr-only">Toggle theme</span>
               </Button>
@@ -73,16 +94,17 @@ export function Header() {
           {/* Mobile Menu */}
           <div className="md:hidden flex items-center gap-2">
             {mounted && (
-              <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover-lift">
+              <Button variant="outline" size="icon" onClick={toggleTheme} className="hover-lift">
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 <span className="sr-only">Toggle theme</span>
               </Button>
             )}
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               className="hover:scale-110 transition-transform"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
@@ -97,9 +119,10 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  scroll={false}
+                  onClick={(e) => handleScroll(e, item.href)}
                   className="text-foreground hover:text-primary transition-colors animate-slide-in-left"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>

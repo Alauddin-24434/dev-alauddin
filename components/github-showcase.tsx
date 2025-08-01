@@ -116,7 +116,7 @@ export function GitHubShowcase() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-muted/20 to-background">
+    <section id="github" className="py-20 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4">
         {/* Section Header - Always visible */}
         <div className="text-center mb-16">
@@ -231,9 +231,9 @@ export function GitHubShowcase() {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-            <a href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white">
               <Github className="w-5 h-5" />
-              View Full GitHub Profile
+              View GitHub Profile
             </a>
           </Button>
         </div>

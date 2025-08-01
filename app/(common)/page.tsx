@@ -18,7 +18,7 @@ export default function Home() {
       <About />
       <Skills />
       <FeaturedProjects />
-      <GitHubShowcase /> {/* 👈 Perfect placement here! */}
+      <GitHubShowcase />
       <CoursesAndCertifications />
       <BlogSection/>
       <Contact />

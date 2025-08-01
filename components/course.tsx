@@ -47,8 +47,8 @@ const courses = [
   ]
 
   return (
-    <section id="education" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="education" className="py-16 md:py-24 bg-muted/30">
+      <div className="container mx-auto px-4 ">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
            Learning<span className="text-primary"> & Achievements</span> 

@@ -87,7 +87,7 @@ export function Contact() {
 
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -98,7 +98,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* ==== Contact Information ==== */}
           <div className="space-y-8">
             <div>
@@ -186,7 +186,7 @@ export function Contact() {
                   required
                 />
 
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button type="submit" className="w-full  text-white" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : (
                     <>
                       <Send className="w-4 h-4 mr-2" />

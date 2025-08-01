@@ -1,11 +1,20 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mail, Eye, Download } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
+  const handleSmoothScroll = (e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    const el = document.querySelector(id)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
       {/* ==== Background Animation ==== */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
@@ -42,29 +51,62 @@ export function Hero() {
 
             {/* ==== CTA Buttons ==== */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "1s" }}>
-              <Button size="lg" className="group hover-lift">
+              <Button
+                size="lg"
+                className="group hover-lift flex text-white items-center gap-2"
+                onClick={(e) => handleSmoothScroll(e, "#projects")}
+              >
+
                 View My Work
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 mr-2" />
               </Button>
-              <Button variant="outline" size="lg" className="hover-lift bg-transparent " id="contact">
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="group hover-lift bg-transparent flex items-center gap-2"
+                onClick={(e) => handleSmoothScroll(e, "#contact")}
+              >
                 <Mail className="w-4 h-4 mr-2" />
                 Contact Me
               </Button>
+
+
             </div>
 
             {/* ==== Resume Buttons ==== */}
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up" style={{ animationDelay: "1.2s" }}>
-              <Button variant="outline" className="group hover-lift bg-transparent" asChild>
-                <Link href="/resume">
+              <Button
+                variant="outline"
+                className="group hover-lift bg-transparent"
+                asChild
+              >
+                <a
+                  href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  View Resume Online
-                </Link>
+                  View Resume
+                </a>
               </Button>
-              <Button variant="secondary" className="group hover-lift">
-                <Download className="w-4 h-4 mr-2 group-hover:bounce transition-transform" />
-                Download PDF
+              <Button
+                variant="secondary"
+                className="group hover-lift"
+                asChild
+              >
+                <a
+                  href=" https://drive.usercontent.google.com/download?id=1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl&export=download&authuser=0"
+
+
+                  download
+                >
+                  <Download className="w-4 h-4 mr-2 group-hover:bounce transition-transform" />
+                  Download Resume
+                </a>
               </Button>
             </div>
+
 
             {/* ==== Stats ==== */}
             <div className="grid grid-cols-3 gap-8 pt-8">
@@ -94,8 +136,8 @@ export function Hero() {
                 height={600}
                 className="relative z-10 rounded-full border-4 border-primary/20 hover:scale-105 transition-transform duration-500"
               />
-             
-             
+
+
             </div>
           </div>
         </div>
