@@ -5,8 +5,6 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
-import { Header } from "@/components/header"
-
 export const metadata: Metadata = {
   title: "Your Portfolio", // Updated title
   description: "Professional Full Stack Developer Portfolio", // Updated description
@@ -32,7 +30,7 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange>
-            <Header />
+      
           {children}
         </ThemeProvider>
       </body>

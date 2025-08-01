@@ -8,6 +8,7 @@ import { GitHubShowcase } from "@/components/github-showcase"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { CoursesAndCertifications } from "@/components/course"
+import { BlogSection } from "@/components/blog"
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <FeaturedProjects />
       <GitHubShowcase /> {/* 👈 Perfect placement here! */}
       <CoursesAndCertifications />
+      <BlogSection/>
       <Contact />
       <Footer />
     </main>

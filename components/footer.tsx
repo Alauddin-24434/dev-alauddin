@@ -23,12 +23,7 @@ export function Footer() {
       { name: "Database Design", href: "#services" },
       { name: "Consulting", href: "#contact" },
     ],
-    Connect: [
-      { name: "GitHub", href: "https://github.com/Alauddin-24434" },
-      { name: "LinkedIn", href: "#" },
-      { name: "Twitter", href: "#" },
-      { name: "Email", href: "mailto:alauddin150900@gmail.com" },
-    ],
+   
   }
 
   const socialLinks = [

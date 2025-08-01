@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Royal Place Hotel",
+    "description": "A comprehensive hotel booking system with modern payment integration, real-time room availability, guest management, and an intuitive admin dashboard for seamless hotel operations.",
+    "image": "/placeholder.svg?height=400&width=600",
+    "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Socket.io"],
+    "liveUrl": "https://royal-place-hotel.vercel.app",
+    "githubUrl": "https://github.com/yourusername/royal-place-frontend",
+    "category": "Full Stack",
+    "backendTitle": "Royal Place Hotel Backend",
+    "backendDescription": "Robust REST API with secure authentication, payment processing, real-time booking management, room availability tracking, and comprehensive admin controls for hotel operations.",
+    "backendTechnologies": ["Node.js", "Express.js", "PostgreSQL", "JWT", "Stripe API", "Socket.io", "Multer"],
+    "backendFeatures": ["JWT Authentication & Authorization", "Stripe Payment Integration", "Real-time Room Availability", "Booking Management System", "Guest Profile Management", "Email Notification Service", "File Upload for Documents", "Admin Dashboard APIs"],
+    "backendGithubUrl": "https://github.com/yourusername/royal-place-backend",
+    "apiCollection": {
+      "name": "Royal Place Hotel API",
+      "baseUrl": "https://royal-place-server.vercel.app",
+      "requests": [],
+      "envVariables": []
+    }
+  },
+  {
+    "id": 2,
+    "title": "Academi Admission Management",
+    "description": "A comprehensive admission management system featuring student application processing, document verification, real-time status tracking, and advanced analytics for educational institutions.",
+    "image": "/placeholder.svg?height=400&width=600",
+    "technologies": ["React", "Node.js", "MongoDB", "Socket.io", "Chart.js", "Material-UI"],
+    "liveUrl": "https://academi-admission.vercel.app",
+    "githubUrl": "https://github.com/yourusername/academi-frontend",
+    "category": "Full Stack",
+    "backendTitle": "Academi Admission Backend",
+    "backendDescription": "Scalable admission management system with student application processing, document verification, real-time notifications, automated workflows, and comprehensive reporting APIs.",
+    "backendTechnologies": ["Node.js", "Express.js", "MongoDB", "Socket.io", "Multer", "Nodemailer", "PDF-Kit"],
+    "backendFeatures": ["Student Application Processing", "Document Upload & Verification", "Real-time Status Updates", "Automated Email Notifications", "Admin Reporting Dashboard", "Bulk Data Import/Export", "PDF Report Generation", "Application Workflow Management"],
+    "backendGithubUrl": "https://github.com/yourusername/academi-backend",
+    "apiCollection": {
+      "name": "Academi Admission API",
+      "baseUrl": "https://academi-server.vercel.app",
+      "requests": [],
+      "envVariables": []
+    }
+  },
+  {
+    "id": 3,
+    "title": "Car Wash Booking System",
+    "description": "A modern car wash booking platform with service scheduling, real-time slot availability, payment integration, customer management, and automated service reminders.",
+    "image": "/placeholder.svg?height=400&width=600",
+    "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
+    "liveUrl": "https://carwash-booking.vercel.app",
+    "githubUrl": "https://github.com/yourusername/carwash-frontend",
+    "category": "Full Stack",
+    "backendTitle": "Car Wash Booking Backend",
+    "backendDescription": "Efficient booking management API with service scheduling, slot management, payment processing, customer notifications, and comprehensive business analytics.",
+    "backendTechnologies": ["Node.js", "Express.js", "Prisma", "PostgreSQL", "Stripe API", "Twilio", "Cron Jobs"],
+    "backendFeatures": ["Service Slot Management", "Real-time Booking System", "Payment Processing", "SMS/Email Notifications", "Customer Management", "Service History Tracking", "Automated Reminders", "Business Analytics"],
+    "backendGithubUrl": "https://github.com/yourusername/carwash-backend",
+    "apiCollection": {
+      "name": "Car Wash Booking API",
+      "baseUrl": "https://carwash-server.vercel.app",
+      "requests": [],
+      "envVariables": []
+    }
+  }
+]
