@@ -6,6 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 interface GitHubUser {
   public_repos: number;
   followers: number;
@@ -29,9 +33,9 @@ interface GitHubRepo {
 }
 
 const StatsSkeleton = () => (
-  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12 animate-pulse">
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
     {[...Array(3)].map((_, i) => (
-      <div key={i} className="bg-card border border-border rounded-xl p-4 text-center">
+      <div key={i} className="bg-card border border-border rounded-xl p-4 text-center animate-pulse" data-aos="fade-up" data-aos-delay={i * 100}>
         <div className="w-6 h-6 mx-auto mb-2 rounded-full bg-gray-200 dark:bg-gray-700" />
         <div className="w-12 h-6 mx-auto mb-1 rounded-md bg-gray-200 dark:bg-gray-700" />
         <div className="w-20 h-4 mx-auto rounded-md bg-gray-200 dark:bg-gray-700" />
@@ -41,7 +45,7 @@ const StatsSkeleton = () => (
 );
 
 const ContentSkeleton = () => (
-  <div className="w-full animate-pulse">
+  <div className="w-full animate-pulse" data-aos="fade-up" data-aos-delay="200">
     <div className="bg-card border border-border rounded-2xl p-6 h-96" />
   </div>
 );
@@ -54,6 +58,17 @@ export function GitHubShowcase() {
   const [error, setError] = useState<string | null>(null);
 
   const username = "Alauddin-24434";
+
+  // Initialize AOS animations on component mount
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-in-out",
+    });
+    // Refresh AOS when the tab changes to re-trigger animations on new content
+    AOS.refresh();
+  }, [activeTab]);
 
   useEffect(() => {
     const fetchGitHubData = async () => {
@@ -106,7 +121,7 @@ export function GitHubShowcase() {
     return (
       <section className="py-20 bg-gradient-to-br from-background via-muted/20 to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center">
+          <div className="text-center" data-aos="fade-up">
             <p className="text-red-500 mb-4">Error loading GitHub data: {error}</p>
             <Button onClick={() => window.location.reload()}>Try Again</Button>
           </div>
@@ -118,10 +133,10 @@ export function GitHubShowcase() {
   return (
     <section id="github" className="py-20 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4">
-        {/* Section Header - Always visible */}
-        <div className="text-center mb-16">
+        {/* Section Header */}
+        <div className="text-center mb-16" data-aos="fade-up">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Github className="w-8 h-8 text-primary" />
+
             <h2 className="text-3xl md:text-4xl font-bold">
               GitHub <span className="text-primary">Activity</span>
             </h2>
@@ -134,9 +149,9 @@ export function GitHubShowcase() {
         {loading ? (
           <>
             <StatsSkeleton />
-            <div className="grid w-full grid-cols-2 mb-8 max-w-sm mx-auto bg-muted/50 rounded-lg animate-pulse">
-                <div className="h-10 rounded-lg bg-gray-200 dark:bg-gray-700" />
-                <div className="h-10 rounded-lg bg-gray-200 dark:bg-gray-700" />
+            <div className="grid w-full grid-cols-2 mb-8 max-w-sm mx-auto bg-muted/50 rounded-lg animate-pulse" data-aos="fade-up" data-aos-delay="200">
+              <div className="h-10 rounded-lg bg-gray-200 dark:bg-gray-700" />
+              <div className="h-10 rounded-lg bg-gray-200 dark:bg-gray-700" />
             </div>
             <ContentSkeleton />
           </>
@@ -144,17 +159,29 @@ export function GitHubShowcase() {
           <>
             {/* Additional Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-              <div className="bg-card border border-border rounded-xl p-4 text-center">
+              <div
+                className="bg-card border border-border rounded-xl p-4 text-center"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
                 <BookOpen className="w-6 h-6 text-cyan-500 mx-auto mb-2" />
                 <div className="text-lg font-bold text-cyan-500">{stats?.repositories}</div>
                 <div className="text-xs text-muted-foreground">Repositories</div>
               </div>
-              <div className="bg-card border border-border rounded-xl p-4 text-center">
+              <div
+                className="bg-card border border-border rounded-xl p-4 text-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <Code2 className="w-6 h-6 text-purple-500 mx-auto mb-2" />
                 <div className="text-lg font-bold text-purple-500">{stats?.languages}</div>
                 <div className="text-xs text-muted-foreground">Languages</div>
               </div>
-              <div className="bg-card border border-border rounded-xl p-4 text-center">
+              <div
+                className="bg-card border border-border rounded-xl p-4 text-center"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
                 <Calendar className="w-6 h-6 text-pink-500 mx-auto mb-2" />
                 <div className="text-lg font-bold text-pink-500">{stats?.accountAge}+</div>
                 <div className="text-xs text-muted-foreground">Years Coding</div>
@@ -163,7 +190,7 @@ export function GitHubShowcase() {
 
             {/* GitHub Tabs */}
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8 bg-muted/50">
+              <TabsList className="grid w-full grid-cols-2 mb-8 bg-muted/50" data-aos="fade-up" data-aos-delay="400">
                 <TabsTrigger value="contributions" className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
                   Contributions
@@ -175,7 +202,7 @@ export function GitHubShowcase() {
               </TabsList>
 
               {/* Contributions Tab */}
-              <TabsContent value="contributions" className="space-y-6">
+              <TabsContent value="contributions" className="space-y-6" data-aos="zoom-in" data-aos-delay="500">
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-semibold flex items-center gap-2">
@@ -211,7 +238,7 @@ export function GitHubShowcase() {
               </TabsContent>
 
               {/* Languages Tab */}
-              <TabsContent value="languages" className="space-y-6">
+              <TabsContent value="languages" className="space-y-6" data-aos="zoom-in" data-aos-delay="500">
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
                     <Code2 className="w-5 h-5 text-primary" />
@@ -229,7 +256,7 @@ export function GitHubShowcase() {
         )}
 
         {/* Call to Action */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
             <a href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white">
               <Github className="w-5 h-5" />

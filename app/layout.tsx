@@ -6,7 +6,7 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
 export const metadata: Metadata = {
-  title: "Your Portfolio", // Updated title
+  title: "portfolio",
   description: "Professional Full Stack Developer Portfolio", // Updated description
   generator: "v0.dev",
 }

@@ -21,8 +21,8 @@ export function Header() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
-    { href: "#github", label: "Git Activity" },
     { href: "#blog", label: "Blog" },
+    { href: "#github", label: "Git Activity" },
     { href: "#contact", label: "Contact" },
 
   ]
@@ -68,21 +68,21 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-3">
-              <Button
-                variant="outline"
-                className="group hover-lift bg-transparent"
-                asChild
+            <Button
+              variant="outline"
+              className="group hover-lift bg-transparent"
+              asChild
+            >
+              <a
+                href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a
-                  href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  View Resume
-                </a>
-              </Button>
-         
+                <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                View Resume
+              </a>
+            </Button>
+
             {mounted && (
               <Button variant="outline" size="icon" onClick={toggleTheme} className="hover-lift">
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}

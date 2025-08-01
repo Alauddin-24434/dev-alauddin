@@ -30,7 +30,7 @@ export function Hero() {
           <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-4">
               <p className="text-primary font-medium animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                Hi, I'm a Professional
+                Hi, I'm Md Alauddin
               </p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 <span className="animate-fade-in-up block" style={{ animationDelay: "0.4s" }}>
@@ -44,8 +44,7 @@ export function Hero() {
                 className="text-xl text-muted-foreground max-w-lg animate-fade-in-up"
                 style={{ animationDelay: "0.8s" }}
               >
-                I transform ideas into exceptional digital experiences using cutting-edge technologies and creative
-                solutions.
+                I'm a Full-Stack Developer who enjoys building fast, reliable, and user-friendly web applications.
               </p>
             </div>
 

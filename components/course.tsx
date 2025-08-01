@@ -1,40 +1,53 @@
 "use client"
 
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, Award, Calendar, ExternalLink, Download } from "lucide-react"
+import { GraduationCap, Award, Calendar, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function CoursesAndCertifications() {
-const courses = [
-  {
-    title: "Next Level Web Development Course",
-    provider: "Programming Hero",
-    year: "2024",
-    description:
-      "Covered advanced full-stack development topics including REST APIs, authentication, Redux, and deployment strategies.",
-  },
-  {
-    title: "Complete Web Development Course",
-    provider: "Programming Hero",
-    year: "2023",
-    description:
-      "Learned foundational web development skills including HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
-  },
-];
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    })
+  }, [])
 
+  useEffect(() => {
+    AOS.refresh()
+  })
+
+  const courses = [
+    {
+      title: "Next Level Web Development Course",
+      provider: "Programming Hero",
+      year: "2024",
+      description:
+        "Covered advanced full-stack development topics including REST APIs, authentication, Redux, and deployment strategies.",
+    },
+    {
+      title: "Complete Web Development Course",
+      provider: "Programming Hero",
+      year: "2023",
+      description:
+        "Learned foundational web development skills including HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
+    },
+  ]
 
   const certifications = [
-
     {
       title: "Next Level Web Development Course",
       issuer: "Programming Hero",
       year: "2024",
       credentialId: "PHlevel2-batch-3-fullstackWEB8-38501070",
-      viewUrl:"/certificates/label-2.pdf",
-
+      viewUrl: "/certificates/label-2.pdf",
     },
     {
       title: "Complete Web Development Course",
@@ -42,16 +55,15 @@ const courses = [
       year: "2023",
       credentialId: "WEB8-3850",
       viewUrl: "/certificates/label-1.pdf",
-  
     },
   ]
 
   return (
-    <section id="education" className="py-16 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 ">
-        <div className="text-center mb-12 md:mb-16">
+    <section id="education" className="py-16 md:py-24 bg-background/80 backdrop-blur-md">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12 md:mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-           Learning<span className="text-primary"> & Achievements</span> 
+            Learning<span className="text-primary"> & Achievements</span>
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             A showcase of my commitment to continuous learning and professional development through various courses and
@@ -59,7 +71,7 @@ const courses = [
           </p>
         </div>
 
-        <Tabs defaultValue="courses" className="w-full">
+        <Tabs defaultValue="courses" className="w-full" data-aos="fade-up" data-aos-delay="100">
           <div className="flex justify-center mb-8">
             <TabsList className="grid w-full max-w-sm grid-cols-2">
               <TabsTrigger value="courses">
@@ -74,7 +86,12 @@ const courses = [
           <TabsContent value="courses">
             <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               {courses.map((course, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-shadow duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100 + 200}
+                >
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
@@ -95,7 +112,12 @@ const courses = [
           <TabsContent value="certifications">
             <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               {certifications.map((cert, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-shadow duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100 + 200}
+                >
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
@@ -116,7 +138,6 @@ const courses = [
                           View Certificate
                         </Link>
                       </Button>
-                      
                     </div>
                   </CardContent>
                 </Card>

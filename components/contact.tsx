@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
 import { Button } from "@/components/ui/button"
@@ -8,6 +8,10 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react"
+
+// Import AOS
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -18,6 +22,15 @@ export function Contact() {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Initialize AOS animations on component mount
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-in-out",
+    })
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -62,7 +75,6 @@ export function Contact() {
     }
   }
 
-
   const contactInfo = [
     {
       icon: Mail,
@@ -78,18 +90,17 @@ export function Contact() {
       href: "#",
     },
     {
-      icon: MessageCircle, // or use a WhatsApp SVG icon if you want
+      icon: MessageCircle,
       title: "WhatsApp",
       value: "+880 1951231561",
       href: "https://wa.me/8801951231561?text=Hello!%20I%20want%20to%20connect%20with%20you",
     },
   ]
 
-
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get In <span className="text-primary">Touch</span>
           </h2>
@@ -100,7 +111,7 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* ==== Contact Information ==== */}
-          <div className="space-y-8">
+          <div className="space-y-8" data-aos="fade-right" data-aos-delay="200">
             <div>
               <h3 className="text-2xl font-bold mb-6">Let's Work Together</h3>
               <p className="text-muted-foreground mb-8">
@@ -111,7 +122,12 @@ export function Contact() {
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center gap-4">
+                <div
+                  key={index}
+                  className="flex items-center gap-4"
+                  data-aos="fade-right"
+                  data-aos-delay={300 + index * 100}
+                >
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <info.icon className="w-5 h-5 text-primary" />
                   </div>
@@ -128,11 +144,10 @@ export function Contact() {
                   </div>
                 </div>
               ))}
-
             </div>
 
             {/* ==== Social Links ==== */}
-            <div className="pt-8">
+            <div className="pt-8" data-aos="fade-right" data-aos-delay="600">
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 {["GitHub", "LinkedIn"].map((social, index) => (
@@ -145,13 +160,13 @@ export function Contact() {
           </div>
 
           {/* ==== Contact Form ==== */}
-          <Card>
+          <Card data-aos="fade-left" data-aos-delay="200">
             <CardHeader>
               <CardTitle>Send Me a Message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="300">
                   <Input
                     name="name"
                     placeholder="Your Name"
@@ -169,31 +184,37 @@ export function Contact() {
                   />
                 </div>
 
-                <Input
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
+                <div data-aos="fade-left" data-aos-delay="400">
+                  <Input
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
+                <div data-aos="fade-left" data-aos-delay="500">
+                  <Textarea
+                    name="message"
+                    placeholder="Your Message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-                <Button type="submit" className="w-full  text-white" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                <div data-aos="fade-up" data-aos-delay="600">
+                  <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             </CardContent>
           </Card>

@@ -91,6 +91,7 @@ export function About() {
               width={500}
               height={500}
               className="rounded-lg shadow-2xl"
+              style={{ transform: 'scaleX(-1)' }}
             />
             <div
               className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-lg"
