@@ -2,16 +2,41 @@
   {
     "id": 1,
     "title": "Royal Place Hotel",
+    "thumnail": "/thumnail/royal-place.jpeg?height=400&width=600",
     "description": "A comprehensive hotel booking system with modern payment integration, real-time room availability, guest management, and an intuitive admin dashboard for seamless hotel operations.",
     "image": "/royal-place.png?height=400&width=600",
-    "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Socket.io"],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Socket.io"
+    ],
     "liveUrl": "https://royal-place.vercel.app",
     "githubUrl": "https://github.com/Alauddin-24434/royal-palce-frontend",
     "category": "Full Stack",
     "backendTitle": "Royal Place Hotel Backend",
     "backendDescription": "Robust REST API with secure authentication, payment processing, real-time booking management, room availability tracking, and comprehensive admin controls for hotel operations.",
-    "backendTechnologies": ["Node.js", "Express.js", "PostgreSQL", "JWT", "Stripe API", "Socket.io", "Multer"],
-    "backendFeatures": ["JWT Authentication & Authorization", "Stripe Payment Integration", "Real-time Room Availability", "Booking Management System", "Guest Profile Management", "Email Notification Service", "File Upload for Documents", "Admin Dashboard APIs"],
+    "backendTechnologies": [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "JWT",
+      "Stripe API",
+      "Socket.io",
+      "Multer"
+    ],
+    "backendFeatures": [
+      "JWT Authentication & Authorization",
+      "Stripe Payment Integration",
+      "Real-time Room Availability",
+      "Booking Management System",
+      "Guest Profile Management",
+      "Email Notification Service",
+      "File Upload for Documents",
+      "Admin Dashboard APIs"
+    ],
     "backendGithubUrl": "https://github.com/yourusername/royal-place-backend",
     "apiCollection": {
       "name": "Royal Place Hotel API",
@@ -22,42 +47,141 @@
   },
   {
     "id": 2,
-    "title": "Academi Admission Management",
-    "description": "A comprehensive admission management system featuring student application processing, document verification, real-time status tracking, and advanced analytics for educational institutions.",
-    "image": "/academi.png?height=400&width=600",
-    "technologies": ["React", "Node.js", "MongoDB", "Socket.io", "Chart.js", "Material-UI"],
-    "liveUrl": "https://academi-one.vercel.app",
-    "githubUrl": "https://github.com/Alauddin-24434/academi-frontend",
+    "title": "Learn Finity - E-Learning Platform",
+    "description": "A modern, responsive e-learning web application that allows users to browse, enroll, and learn from various courses. The platform supports both free and paid courses, user authentication, and a smooth learning experience.",
+    "thumnail": "/thumnail/learn-finity.jpeg?height=400&width=600",
+    "image": "/learn-finity.png?height=400&width=600",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+      "NextAuth"
+    ],
+    "liveUrl": "https://learn-finity.vercel.app",
+    "githubUrl": "https://github.com/Alauddin-24434/learn-finity-frontend",
     "category": "Full Stack",
-    "backendTitle": "Academi Admission Backend",
-    "backendDescription": "Scalable admission management system with student application processing, document verification, real-time notifications, automated workflows, and comprehensive reporting APIs.",
-    "backendTechnologies": ["Node.js", "Express.js", "MongoDB", "Socket.io", "Multer", "Nodemailer", "PDF-Kit"],
-    "backendFeatures": ["Student Application Processing", "Document Upload & Verification", "Real-time Status Updates", "Automated Email Notifications", "Admin Reporting Dashboard", "Bulk Data Import/Export", "PDF Report Generation", "Application Workflow Management"],
-    "backendGithubUrl": "https://github.com/yourusername/academi-backend",
+    "backendTitle": "Learn Finity Backend",
+    "backendDescription": "A secure and scalable backend for managing courses, user enrollments, payments, and progress tracking with integrated authentication and admin controls.",
+    "backendTechnologies": [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "JWT",
+      "Stripe API",
+      "Multer",
+      "Nodemailer"
+    ],
+    "backendFeatures": [
+      "User Authentication & Role Management",
+      "Course Creation & Management",
+      "Payment Integration with Stripe",
+      "Progress Tracking System",
+      "Instructor Dashboard",
+      "Email Notifications",
+      "Media Uploads for Courses",
+      "Admin Analytics Panel"
+    ],
+    "backendGithubUrl": "https://github.com/yourusername/learn-finity-backend",
     "apiCollection": {
-      "name": "Academi Admission API",
-      "baseUrl": "https://academi-server.vercel.app",
+      "name": "Learn Finity API",
+      "baseUrl": "https://learn-finity-server.vercel.app",
       "requests": [],
       "envVariables": []
     }
   },
+
   {
     "id": 3,
     "title": "Car Wash Booking System",
+    "thumnail": "/thumnail/car-wash.jpeg?height=400&width=600",
     "description": "A modern car wash booking platform with service scheduling, real-time slot availability, payment integration, customer management, and automated service reminders.",
     "image": "/car-wash.png?height=400&width=600",
-    "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe",
+      "Tailwind CSS"
+    ],
     "liveUrl": "https://car-wash-booking-seven.vercel.app",
     "githubUrl": "https://github.com/Alauddin-24434/car-wash-booking-frontend",
     "category": "Full Stack",
     "backendTitle": "Car Wash Booking Backend",
     "backendDescription": "Efficient booking management API with service scheduling, slot management, payment processing, customer notifications, and comprehensive business analytics.",
-    "backendTechnologies": ["Node.js", "Express.js", "Prisma", "PostgreSQL", "Stripe API", "Twilio", "Cron Jobs"],
-    "backendFeatures": ["Service Slot Management", "Real-time Booking System", "Payment Processing", "SMS/Email Notifications", "Customer Management", "Service History Tracking", "Automated Reminders", "Business Analytics"],
+    "backendTechnologies": [
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe API",
+      "Twilio",
+      "Cron Jobs"
+    ],
+    "backendFeatures": [
+      "Service Slot Management",
+      "Real-time Booking System",
+      "Payment Processing",
+      "SMS/Email Notifications",
+      "Customer Management",
+      "Service History Tracking",
+      "Automated Reminders",
+      "Business Analytics"
+    ],
     "backendGithubUrl": "https://github.com/yourusername/carwash-backend",
     "apiCollection": {
       "name": "Car Wash Booking API",
       "baseUrl": "https://carwash-server.vercel.app",
+      "requests": [],
+      "envVariables": []
+    }
+  },
+  {
+    "id": 4,
+
+    "thumnail": "/thumnail/academi.jpeg?height=400&width=600",
+    "description": "A comprehensive admission management system featuring student application processing, document verification, real-time status tracking, and advanced analytics for educational institutions.",
+    "image": "/academi.png?height=400&width=600",
+    "technologies": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Socket.io",
+      "Chart.js",
+      "Material-UI"
+    ],
+    "liveUrl": "https://academi-one.vercel.app",
+    "githubUrl": "https://github.com/Alauddin-24434/academi-frontend",
+    "category": "Full Stack",
+    "backendTitle": "Academi Admission Backend",
+    "backendDescription": "Scalable admission management system with student application processing, document verification, real-time notifications, automated workflows, and comprehensive reporting APIs.",
+    "backendTechnologies": [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+      "Multer",
+      "Nodemailer",
+      "PDF-Kit"
+    ],
+    "backendFeatures": [
+      "Student Application Processing",
+      "Document Upload & Verification",
+      "Real-time Status Updates",
+      "Automated Email Notifications",
+      "Admin Reporting Dashboard",
+      "Bulk Data Import/Export",
+      "PDF Report Generation",
+      "Application Workflow Management"
+    ],
+    "backendGithubUrl": "https://github.com/yourusername/academi-backend",
+    "apiCollection": {
+      "name": "Academi Admission API",
+      "baseUrl": "https://academi-server.vercel.app",
       "requests": [],
       "envVariables": []
     }

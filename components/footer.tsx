@@ -28,9 +28,8 @@ export function Footer() {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/Alauddin-24434", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:alauddin150900@gmail.com", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/alauddin-dev", label: "LinkedIn" },
+
   ]
 
   return (
@@ -118,7 +117,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-muted-foreground text-sm flex items-center gap-1">
-              Made with <Heart className="w-4 h-4 text-red-500 animate-pulse" /> using Next.js & Tailwind CSS
+              Made with using Next.js & Tailwind CSS
             </p>
           </div>
         </div>

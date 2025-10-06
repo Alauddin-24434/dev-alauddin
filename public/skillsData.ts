@@ -1,108 +1,46 @@
-// skillsData.ts (updated)
+import { Code2, Server, LayoutDashboard, LucideIcon } from "lucide-react";
 
-import {
-  Atom,
-  Triangle,
-  Type,
-  FileText as FileJs,
-  File as FileHtml,
-  FileCode as FileCss,
-  Wind,
-  Redo,
-  Fish,
-  Droplet,
-  Leaf,
-  Rocket,
-  Link,
-  Database,
-  Flame,
-  Bolt,
-  GitBranch,
-  Dock,
-  Cloud,
-  Workflow,
-  Figma,
-  Palette,
-  MonitorSmartphone,
-  Users,
-  TestTube,
-  Kanban,
-  Settings,
-  Bug,
-  Brush,
-  Code2,
-  Server,
-  ShieldCheck,
-  LayoutDashboard,
-  LucideIcon,
-  Lightbulb,
-  Repeat,
-  Blocks,
-  LayoutGrid,
-  Scale,
-} from "lucide-react";
-
-// Define a type for skill icons
-export const skillIcons: { [key: string]: LucideIcon } = {
-  React: Atom,
-  "Next.js": Triangle,
-  TypeScript: Type,
-  JavaScript: FileJs,
-  HTML5: FileHtml,
-  CSS3: FileCss,
-  "Tailwind CSS": Wind,
-  Redux: Redo,
-  Zustand: Fish,
-  Sass: Droplet,
-  "Node.js": Leaf,
-  "Express.js": Rocket,
-  "REST APIs": Link,
-  "MongoDB": Database,
-  "PostgreSQL": Database,
-  "Firebase": Flame,
-  "Supabase": Bolt,
-  "Prisma": Database,
-  Git: GitBranch,
-  Docker: Dock,
-  Vercel: Triangle,
-  "GitHub Actions": Workflow,
-  "CI/CD": Workflow,
-  Figma: Figma,
-  "Responsive Design": MonitorSmartphone,
-  "User Experience": Users,
-  Jest: TestTube,
-  "Unit Testing": TestTube,
-  "Integration Testing": TestTube,
-  Jira: Kanban,
-  Trello: Kanban,
-  Asana: Kanban,
-  "VS Code": Settings,
-  ESLint: Bug,
-  Prettier: Brush,
-  "Clean Code": Lightbulb,
-  DRY: Repeat,
-  "Modular Design": Blocks,
-  "MVC Pattern": LayoutGrid,
-  "Error Handling": Bug,
-  Scalability: Scale,
-  default: Lightbulb,
+// ✅ Shields.io Badge URLs
+export const skillBadges: { [key: string]: string } = {
+  HTML5: "https://img.shields.io/badge/html5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white",
+  CSS3: "https://img.shields.io/badge/css3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white",
+  JavaScript: "https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E",
+  TypeScript: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white",
+  React: "https://img.shields.io/badge/react-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB",
+  "Next.js": "https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white",
+  "Tailwind CSS": "https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white",
+  Redux: "https://img.shields.io/badge/redux-%23593d88.svg?style=flat-square&logo=redux&logoColor=white",
+  Figma: "https://img.shields.io/badge/figma-%23F24E1E.svg?style=flat-square&logo=figma&logoColor=white",
+  NodeJS: "https://img.shields.io/badge/node.js-6DA55F?style=flat-square&logo=node.js&logoColor=white",
+  "Express.js": "https://img.shields.io/badge/express.js-%23404d59.svg?style=flat-square&logo=express&logoColor=%2361DAFB",
+  MongoDB: "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat-square&logo=mongodb&logoColor=white",
+  PostgreSQL: "https://img.shields.io/badge/postgres-%23316192.svg?style=flat-square&logo=postgresql&logoColor=white",
+  Prisma: "https://img.shields.io/badge/Prisma-3982CE?style=flat-square&logo=Prisma&logoColor=white",
+  Supabase: "https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white",
+  Firebase: "https://img.shields.io/badge/firebase-%23039BE5.svg?style=flat-square&logo=firebase",
+  Docker: "https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white",
+  Git: "https://img.shields.io/badge/git-%23F05033.svg?style=flat-square&logo=git&logoColor=white",
+  GitHub: "https://img.shields.io/badge/github-%23121011.svg?style=flat-square&logo=github&logoColor=white",
+  "GitHub Actions": "https://img.shields.io/badge/github%20actions-%232671E5.svg?style=flat-square&logo=githubactions&logoColor=white",
+  Vercel: "https://img.shields.io/badge/vercel-%23000000.svg?style=flat-square&logo=vercel&logoColor=white",
+  ESLint: "https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=eslint&logoColor=white",
+  default: "https://img.shields.io/badge/Skill-gray.svg?style=flat-square&logo=code",
 };
 
-// Define a type for a single skill sub-category
+// 🧩 Type Definitions
 export interface SkillSubCategory {
   title: string;
   description: string;
   skills: string[];
 }
 
-// Define a type for the main skill categories (the 3 tabs)
 export interface MainSkillCategory {
   title: string;
   icon: LucideIcon;
   subCategories: SkillSubCategory[];
 }
 
-// The new, consolidated skill categories
+// 🧠 Main Skill Categories
 export const skillCategories: MainSkillCategory[] = [
   {
     title: "Frontend & UI/UX",
@@ -110,23 +48,22 @@ export const skillCategories: MainSkillCategory[] = [
     subCategories: [
       {
         title: "Frontend Development",
-        description: "Building interactive and responsive user interfaces.",
+        description: "Building modern, responsive, and interactive UIs.",
         skills: [
-          "React",
-          "Next.js",
-          "TypeScript",
-          "JavaScript",
           "HTML5",
           "CSS3",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Next.js",
           "Tailwind CSS",
           "Redux",
-          "Zustand",
         ],
       },
       {
-        title: "Design & UI/UX",
-        description: "Crafting intuitive and visually appealing user experiences.",
-        skills: ["Figma", "Responsive Design", "User Experience"],
+        title: "UI/UX & Design",
+        description: "Designing visually appealing and user-friendly interfaces.",
+        skills: ["Figma"],
       },
     ],
   },
@@ -135,40 +72,25 @@ export const skillCategories: MainSkillCategory[] = [
     icon: Server,
     subCategories: [
       {
-        title: "Backend Development",
-        description: "Developing robust and scalable server-side applications.",
-        skills: ["Node.js", "Express.js", "REST APIs"],
+        title: "Server & APIs",
+        description: "Developing robust and scalable backend services.",
+        skills: ["NodeJS", "Express.js", "MongoDB", "PostgreSQL", "Prisma"],
       },
       {
-        title: "Database & Storage",
-        description: "Managing and optimizing data storage solutions.",
-        skills: ["MongoDB", "PostgreSQL", "Firebase", "Supabase", "Prisma"],
-      },
-      {
-        title: "DevOps & Cloud",
-        description: "Automating deployment, scaling, and infrastructure management.",
-        skills: ["Git", "Docker", "Vercel", "GitHub Actions", "CI/CD"],
+        title: "DevOps & Tools",
+        description: "Deployment, CI/CD, and cloud integrations.",
+        skills: ["Supabase", "Firebase", "Docker", "GitHub Actions", "Vercel"],
       },
     ],
   },
   {
-    title: "Tools & Principles",
+    title: "Tools & Code Quality",
     icon: LayoutDashboard,
     subCategories: [
       {
-        title: "Testing & Quality Assurance",
-        description: "Ensuring code reliability and application stability.",
-        skills: ["Jest", "Unit Testing", "Integration Testing"],
-      },
-      {
-        title: "Project Management & Tools",
-        description: "Organizing workflows and collaborating effectively.",
-        skills: ["Jira", "Trello", "Asana", "VS Code", "ESLint", "Prettier"],
-      },
-      {
-        title: "Core Principles",
-        description: "Adhering to best practices for maintainable and efficient code.",
-        skills: ["Clean Code", "DRY", "Modular Design", "MVC Pattern", "Error Handling", "Scalability"],
+        title: "Developer Tools",
+        description: "Improving development workflow and consistency.",
+        skills: ["Git", "GitHub", "ESLint"],
       },
     ],
   },

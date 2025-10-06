@@ -160,13 +160,13 @@ export function Contact() {
           </div>
 
           {/* ==== Contact Form ==== */}
-          <Card data-aos="fade-left" data-aos-delay="200">
+          <Card data-aos="fade-up" data-aos-delay="200">
             <CardHeader>
               <CardTitle>Send Me a Message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="300">
+                <div className="grid md:grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="300">
                   <Input
                     name="name"
                     placeholder="Your Name"
@@ -184,7 +184,7 @@ export function Contact() {
                   />
                 </div>
 
-                <div data-aos="fade-left" data-aos-delay="400">
+                <div data-aos="fade-up" data-aos-delay="400">
                   <Input
                     name="subject"
                     placeholder="Subject"
@@ -194,7 +194,7 @@ export function Contact() {
                   />
                 </div>
 
-                <div data-aos="fade-left" data-aos-delay="500">
+                <div data-aos="fade-up" data-aos-delay="500">
                   <Textarea
                     name="message"
                     placeholder="Your Message"

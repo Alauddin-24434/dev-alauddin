@@ -80,14 +80,14 @@ export function Hero() {
                 className="group hover-lift bg-transparent"
                 asChild
               >
-                <a
-                  href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  View Resume
-                </a>
+               <a
+                href="https://drive.google.com/file/d/1tHTzTsZRyJLKcvbYwfN6c8rZERh47h8t/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                View Resume
+              </a>
               </Button>
               <Button
                 variant="secondary"
@@ -95,7 +95,7 @@ export function Hero() {
                 asChild
               >
                 <a
-                  href=" https://drive.usercontent.google.com/download?id=1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl&export=download&authuser=0"
+                  href=" https://drive.usercontent.google.com/download?id=1tHTzTsZRyJLKcvbYwfN6c8rZERh47h8t&export=download&authuser=0"
 
 
                   download
@@ -110,16 +110,16 @@ export function Hero() {
             {/* ==== Stats ==== */}
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="animate-scale-in" style={{ animationDelay: "1.4s" }}>
-                <h3 className="text-2xl font-bold text-primary">50+</h3>
+                <h3 className="text-2xl font-bold text-primary">20+</h3>
                 <p className="text-muted-foreground">Projects Completed</p>
               </div>
               <div className="animate-scale-in" style={{ animationDelay: "1.6s" }}>
-                <h3 className="text-2xl font-bold text-primary">3+</h3>
-                <p className="text-muted-foreground">Years Experience</p>
+                <h3 className="text-2xl font-bold text-primary">2+</h3>
+                <p className="text-muted-foreground">Years Coding</p>
               </div>
               <div className="animate-scale-in" style={{ animationDelay: "1.8s" }}>
-                <h3 className="text-2xl font-bold text-primary">100%</h3>
-                <p className="text-muted-foreground">Client Satisfaction</p>
+                <h3 className="text-2xl font-bold text-primary">SEO</h3>
+                <p className="text-muted-foreground">Optimization</p>
               </div>
             </div>
           </div>

@@ -17,12 +17,12 @@ export function Header() {
 
   const navItems = [
 
-    { href: "#hero", label: "Hero" },
+    { href: "/", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
     { href: "#blog", label: "Blog" },
-    { href: "#github", label: "Git Activity" },
+    
     { href: "#contact", label: "Contact" },
 
   ]
@@ -74,7 +74,7 @@ export function Header() {
               asChild
             >
               <a
-                href="https://drive.google.com/file/d/1K00zqoXR7jJNJjmKC9R5WW9edH_iSSUl/view?usp=sharing"
+                href="https://drive.google.com/file/d/1tHTzTsZRyJLKcvbYwfN6c8rZERh47h8t/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -129,10 +129,14 @@ export function Header() {
               ))}
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="outline" size="sm" className="w-fit bg-transparent hover-lift" asChild>
-                  <Link href="/resume">
-                    <Eye className="w-4 h-4 mr-2" />
-                    View Resume
-                  </Link>
+                  <a
+                href="https://drive.google.com/file/d/1tHTzTsZRyJLKcvbYwfN6c8rZERh47h8t/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Eye className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                View Resume
+              </a>
                 </Button>
                 <Button size="sm" className="w-fit hover-lift">
                   <Download className="w-4 h-4 mr-2" />

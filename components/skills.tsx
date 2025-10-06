@@ -1,152 +1,111 @@
-
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-// Import the separated skill data and types
-import { skillCategories, skillIcons, MainSkillCategory } from "@/public/skillsData";
+// Skill data with badges
+const skillSections = [
+  {
+    title: "Frontend & UI/UX",
 
-// --- Skeleton Component for Skills Grid ---
-const SkillsGridSkeleton: React.FC = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mt-6">
-        {[...Array(6)].map((_, index) => (
-            <div
-                key={index}
-                className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 animate-pulse"
-            >
-                <div className="w-5 h-5 rounded-full bg-primary/20" />
-                <div className="w-3/4 h-5 rounded-md bg-primary/20" />
-            </div>
-        ))}
-    </div>
-);
+    skills: [
+      "https://img.shields.io/badge/html5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white",
+      "https://img.shields.io/badge/css3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white",
+      "https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E",
+      "https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white",
+      "https://img.shields.io/badge/react-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB",
+      "https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white",
+      "https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white",
 
-// --- Main Skills Component ---
+      "https://img.shields.io/badge/redux-%23593d88.svg?style=flat-square&logo=redux&logoColor=white",
+      "https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=flat-square&logo=reacthookform&logoColor=white",
+      "https://img.shields.io/badge/figma-%23F24E1E.svg?style=flat-square&logo=figma&logoColor=white",
+    ],
+  },
+  {
+    title: "Backend & Databases",
+
+    skills: [
+      "https://img.shields.io/badge/node.js-6DA55F?style=flat-square&logo=node.js&logoColor=white",
+      "https://img.shields.io/badge/express.js-%23404d59.svg?style=flat-square&logo=express&logoColor=%2361DAFB",
+      "https://img.shields.io/badge/Go-%23404d59.svg?style=flat-square&logo=go&logoColor=%2361DAFB",
+
+      "https://img.shields.io/badge/postgres-%23316192.svg?style=flat-square&logo=postgresql&logoColor=white",
+      "https://img.shields.io/badge/Prisma-3982CE?style=flat-square&logo=Prisma&logoColor=white",
+      "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat-square&logo=mongodb&logoColor=white",
+      "https://img.shields.io/badge/Socket.io-black?style=flat-square&logo=socket.io&badgeColor=010101",
+      "https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens",
+
+      "https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white",
+      "https://img.shields.io/badge/Firebase-%23039BE5.svg?style=flat-square&logo=firebase",
+    ],
+  },
+  {
+    title: "Tools",
+
+    skills: [
+      "https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white",
+      "https://img.shields.io/badge/vercel-%23000000.svg?style=flat-square&logo=vercel&logoColor=white",
+      "https://img.shields.io/badge/Postman-%23FF6C37.svg?style=flat-square&logo=postman&logoColor=white",
+
+      "https://img.shields.io/badge/git-%23F05033.svg?style=flat-square&logo=git&logoColor=white",
+      "https://img.shields.io/badge/github-%23121011.svg?style=flat-square&logo=github&logoColor=white",
+      "https://img.shields.io/badge/github%20actions-%232671E5.svg?style=flat-square&logo=githubactions&logoColor=white",
+      "https://img.shields.io/badge/NPM-%23CB3837.svg?style=flat-square&logo=npm&logoColor=white",
+      "https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=flat-square&logo=pnpm&logoColor=f69220",
+      "https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=eslint&logoColor=white",
+    ],
+  },
+];
+
 export function Skills() {
-    const [loadingSkills, setLoadingSkills] = useState(true);
-    const [activeCategoryTitle, setActiveCategoryTitle] = useState(skillCategories[0].title);
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+  }, []);
 
-    // Initialize AOS animations on mount
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: false,
-            easing: "ease-in-out",
-        });
-    }, []);
+  return (
+    <section id="skills" className="py-20 bg-background/80 backdrop-blur-md">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            My <span className="text-primary">Skills</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Technologies, tools, and frameworks I use to craft modern, scalable,
+            and user-friendly applications.
+          </p>
+        </div>
 
-    // Use a separate useEffect to handle loading state for the skills grid
-    // This will run when the activeCategoryTitle changes
-    useEffect(() => {
-        setLoadingSkills(true);
-        const timer = setTimeout(() => {
-            setLoadingSkills(false);
-        }, 500);
+        <div className="space-y-12">
+          {skillSections.map((section, index) => (
+            <Card
+              key={index}
+              className="p-8 border-none bg-muted/10  transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
+            >
+              <CardContent className="p-0">
+                <h3 className="text-2xl font-bold mb-2 text-primary">
+                  {section.title}
+                </h3>
 
-        return () => clearTimeout(timer);
-    }, [activeCategoryTitle]);
-
-    useEffect(() => {
-        AOS.refresh();
-    });
-
-    return (
-        <section
-            id="skills"
-            className="py-20  bg-background/80 backdrop-blur-md"
-        >
-            <div className="container mx-auto px-4">
-                {/* Section title and description (always visible) */}
-                <div className="text-center mb-16 animate-fade-in-up" data-aos="fade-up">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        My <span className="text-primary">Skills</span>
-                    </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        A comprehensive overview of the technologies, tools, and principles I master to build exceptional digital products.
-                    </p>
+                <div className="flex flex-wrap gap-3">
+                  {section.skills.map((badge, i) => (
+                    <img
+                      key={i}
+                      src={badge}
+                      alt="skill badge"
+                      className="h-7 hover:scale-110 transition-transform"
+                    />
+                  ))}
                 </div>
-
-                {/* Tabs Component for Categories */}
-                <Tabs value={activeCategoryTitle} onValueChange={setActiveCategoryTitle}>
-                    <div
-                        className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in-up"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                    >
-                        <TabsList className="flex flex-wrap justify-center h-auto gap-2 p-1.5">
-                            {skillCategories.map((mainCategory) => {
-                                const IconComponent = mainCategory.icon;
-                                return (
-                                    <TabsTrigger
-                                        key={mainCategory.title}
-                                        value={mainCategory.title}
-                                       
-                                    >
-                                        <div className="flex items-center gap-2">
-                                            <IconComponent className="w-4 h-4 " />
-                                            {mainCategory.title}
-                                        </div>
-
-                                    </TabsTrigger>
-                                );
-                            })}
-                        </TabsList>
-                    </div>
-
-                    {/* Skills Display Area */}
-                    <Card className="p-8 animate-scale-in" data-aos="zoom-in" data-aos-delay="200">
-                        <CardContent className="p-0">
-                            {skillCategories.map((mainCategory, mainIndex) => (
-                                <TabsContent key={mainIndex} value={mainCategory.title} className="mt-0">
-                                    {mainCategory.subCategories.map((subCategory, subIndex) => (
-                                        <React.Fragment key={subIndex}>
-                                            {/*
-   The `data-aos` attribute was using `skillIndex` which was not in scope here.
-   It has been removed to prevent errors.
-   */}
-                                            <div className="flex items-center gap-4 mb-4 mt-6 first:mt-0" data-aos="fade-up">
-                                                <div className="p-3 rounded-full bg-primary/10 text-primary">
-                                                    <mainCategory.icon className="w-6 h-6" />
-                                                </div>
-                                                <div>
-                                                    <h3 className="text-2xl font-bold">{subCategory.title}</h3>
-                                                    <p className="text-muted-foreground text-base">
-                                                        {subCategory.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            {loadingSkills ? (
-                                                <SkillsGridSkeleton />
-                                            ) : (
-                                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mt-6">
-                                                    {subCategory.skills.map((skill, skillIndex) => {
-                                                        const IconComponent = skillIcons[skill] || skillIcons["default"];
-                                                        return (
-                                                            <div
-                                                                key={skillIndex}
-                                                                className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors group"
-                                                                data-aos="fade-up"
-                                                                data-aos-delay={skillIndex * 50}
-                                                            >
-                                                                <IconComponent className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                                                <span className="text-base font-medium">{skill}</span>
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
-                                            )}
-                                        </React.Fragment>
-                                    ))}
-                                </TabsContent>
-                            ))}
-                        </CardContent>
-                    </Card>
-                </Tabs>
-            </div>
-        </section>
-    );
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

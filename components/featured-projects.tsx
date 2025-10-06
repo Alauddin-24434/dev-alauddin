@@ -222,8 +222,8 @@ export function FeaturedProjects() {
             >
                 <div className="relative overflow-hidden">
                     <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
+                        src={project?.thumnail || "/placeholder.svg"}
+                        alt={project?.thumnail}
                         width={600}
                         height={400}
                         className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -267,20 +267,22 @@ export function FeaturedProjects() {
                             </Badge>
                         )}
                     </div>
-                    <Button variant="outline" className="w-fit group/btn bg-transparent" asChild>
+                    {/* <Button variant="outline" className="w-fit group/btn bg-transparent" asChild>
                         <Link href={`/projects/${project.id}`}>
                             View Details
                             <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                         </Link>
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
         );
     };
 
     return (
-        <section id="projects" className="py-20 bg-muted/30">
+        <section id="projects" className="py-20 bg-muted/10">
+            
             <div className="container mx-auto px-4">
+                
                 <div className="text-center mb-16" data-aos="fade-up"> {/* Added data-aos */}
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         My <span className="text-primary">Projects</span>

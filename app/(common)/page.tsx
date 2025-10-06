@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { FeaturedProjects } from "@/components/featured-projects"
-import { GitHubShowcase } from "@/components/github-showcase"
+
 
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -20,8 +20,8 @@ export default function Home() {
       <FeaturedProjects />
 
       <CoursesAndCertifications />
-      <BlogSection />
-      <GitHubShowcase />
+      {/* <BlogSection /> */}
+      
       <Contact />
       <Footer />
     </main>

@@ -88,7 +88,7 @@ export function CoursesAndCertifications() {
               {courses.map((course, index) => (
                 <Card
                   key={index}
-                  className="hover:shadow-lg transition-shadow duration-300"
+                  className="hover:shadow-lg border-none bg-muted/10 transition-shadow duration-300"
                   data-aos="zoom-in"
                   data-aos-delay={index * 100 + 200}
                 >
@@ -114,7 +114,7 @@ export function CoursesAndCertifications() {
               {certifications.map((cert, index) => (
                 <Card
                   key={index}
-                  className="hover:shadow-lg transition-shadow duration-300"
+                  className="hover:shadow-lg bg-muted/10 border-none transition-shadow duration-300"
                   data-aos="zoom-in"
                   data-aos-delay={index * 100 + 200}
                 >
