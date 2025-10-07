@@ -15,9 +15,9 @@ export function About() {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-muted/10 relative overflow-hidden">
+    <section id="about" className="py-20  relative overflow-hidden  border-t">
   
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 ">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12" data-aos="fade-up">
           About <span className="text-primary">Me</span>
         </h2>

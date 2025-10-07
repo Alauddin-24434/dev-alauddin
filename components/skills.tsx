@@ -82,7 +82,7 @@ export function Skills() {
           {skillSections.map((section, index) => (
             <Card
               key={index}
-              className="p-8 border-none bg-muted/10  transition-all duration-300"
+              className="p-8 border-none  transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >

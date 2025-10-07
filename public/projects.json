@@ -57,7 +57,7 @@
     "thumnail": "/thumnail/agri.jpeg?height=400&width=600",
     "description": "A simple agri management dashboard with analytics and real-time updates.",
     "technologies": ["Next", "Node.js", "MongoDB", "Chart.js"],
-    "liveUrl": "https://agri-system.vercel.app",
+    "liveUrl": "https://agri-climatic.vercel.app",
     "githubUrl": "https://github.com/Alauddin-24434/agri-frontend",
     "category": "Full Stack"
   },

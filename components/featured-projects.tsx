@@ -58,13 +58,25 @@ export function FeaturedProjects() {
           </Badge>
         </div>
         <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white" asChild>
+          <Button
+            size="sm"
+            className="bg-white/20 hover:bg-white/30 text-white"
+            asChild
+          >
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
             </a>
           </Button>
-          <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white" asChild>
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+          <Button
+            size="sm"
+            className="bg-white/20 hover:bg-white/30 text-white"
+            asChild
+          >
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="w-4 h-4" />
             </a>
           </Button>
@@ -72,8 +84,12 @@ export function FeaturedProjects() {
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{project.description}</p>
+        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+          {project.description}
+        </p>
         <div className="flex flex-wrap gap-2">
           {project.technologies.slice(0, 4).map((tech: string, i: number) => (
             <Badge key={i} variant="secondary" className="text-xs px-2 py-1">
@@ -94,7 +110,7 @@ export function FeaturedProjects() {
   const allProjects = projects;
 
   return (
-    <section id="projects" className="py-20 bg-muted/10 relative">
+    <section id="projects" className="py-20  relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -107,7 +123,11 @@ export function FeaturedProjects() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={(val) => setActiveTab(val)}>
-          <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
+          <div
+            className="flex justify-center mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <TabsList className="grid w-full max-w-md grid-cols-2">
               <TabsTrigger value="recent">Recent</TabsTrigger>
               <TabsTrigger value="all">All</TabsTrigger>
@@ -118,11 +138,15 @@ export function FeaturedProjects() {
           <TabsContent value="recent">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {loading ? (
-                <p className="col-span-full text-center text-muted-foreground text-lg">Loading recent projects...</p>
+                <p className="col-span-full text-center text-muted-foreground text-lg">
+                  Loading recent projects...
+                </p>
               ) : recentProjects.length > 0 ? (
                 recentProjects.map((p, i) => renderProjectCard(p, i))
               ) : (
-                <p className="col-span-full text-center text-muted-foreground text-lg">No recent projects found.</p>
+                <p className="col-span-full text-center text-muted-foreground text-lg">
+                  No recent projects found.
+                </p>
               )}
             </div>
           </TabsContent>
@@ -131,11 +155,15 @@ export function FeaturedProjects() {
           <TabsContent value="all">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {loading ? (
-                <p className="col-span-full text-center text-muted-foreground text-lg">Loading all projects...</p>
+                <p className="col-span-full text-center text-muted-foreground text-lg">
+                  Loading all projects...
+                </p>
               ) : allProjects.length > 0 ? (
                 allProjects.map((p, i) => renderProjectCard(p, i))
               ) : (
-                <p className="col-span-full text-center text-muted-foreground text-lg">No projects found.</p>
+                <p className="col-span-full text-center text-muted-foreground text-lg">
+                  No projects found.
+                </p>
               )}
             </div>
           </TabsContent>
